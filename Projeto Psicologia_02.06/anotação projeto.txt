@@ -1,0 +1,9 @@
+
+gerar relatorio:
+listagem, tudo
+
+arrumar a mascara de entrada do numero de telefone para o chatbot funcionar
+
+
+
+

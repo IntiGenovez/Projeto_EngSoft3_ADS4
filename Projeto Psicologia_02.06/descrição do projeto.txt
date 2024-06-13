@@ -1,0 +1,167 @@
+tela de login:
+
+	no canto central esquerdo da tela, precisa de uma label escrita "Login" com uma text box a sua direita.
+	
+	em baixo da label de login, outra label escrita "Senha" com outra text box a sua direita
+
+	a direita da text box senha, presisa ter uma check box escrita "Visualizar Senha"
+
+	um pouco a baixo da text box da senha, precisa ter uma label escrita "Esqueci Senha"
+
+	mais a baixo e a direita da label "Esqueci Senha", precisa de um botão grande escrito "Entrar"
+
+	{} caso login ou senha esteja errado:
+
+		- aparece uma caixa de mensagem escrita: "Usuario ou senha incorretos"
+			- a caixa de mensagem deve ter o titulo "AVISO" e usar designe de informação no parâmetro;
+			- a caixa de mensagem tem apenas o botão de ok
+
+		- todas text boxs são limpas e a text box login recebe foco para escrever
+
+	{} caso login e senha estajam corretos:
+		
+		{} se for login de adm:
+			vá para tela inicial como adm
+		
+		{} se for login de auxiliar:
+			vá para tela incial como auxiliar
+
+tela inical:
+	- no canto superior esquerdo da tela tem uma aba, como se fosse uma gaveta de itens,
+	  esta escrito "Menu". 
+		
+		- ao clicar na aba, aparece as opções: "Menu Principal", "Cadastro de CLientes", 
+		  "Gerar Relatórios" e "Cadastro de usuário"
+		  (essa aba aparece em todos formulários)
+
+	- no topo da tela, centralizado, tem uma label grande escrita "Bem-Vindo!"
+
+	- à esquerda tem botões compridos e mais finos, bem proximos um do outro, são eles:
+			- "Cadastro de Clientes" 
+			- "Pagamento de Clientes"
+			- "Gerar Relatórios"			
+			- "Cadastro de Usuário" (só é visivel se o login for de adm)
+
+cadastro de clientes:
+
+	tem um data grid com duas abas são elas:
+		* Cadastro de Cliente:
+			
+			- aparece um formulário com os seguintes campos para cadastro:
+				- "CPF"				
+				- "Nome"
+				- "Data de Nascimento"
+				- "Nome do Responsável(opcional)"
+				- "CEP"
+				- "Endereço"
+				- "Numero"
+				- "Bairro"
+				- "Forma de Atendimento" (Presencial ou Online)
+				- "Valor da Consulta"
+				- "Forma de Pagamento"
+				- "Possui Convenio" (Sim ou Não)
+		
+			- tem um botão escrito "GRAVAR"
+				{} se o cpf já foi usado:
+				
+					- aparece uma caixa de mensagem escrita "Esse cpf já foi ultilizado!", 
+						a caixa tem a opção de "ok" apenas, em seu titulo esta escrito "ATENÇÃO"
+						
+					- a caixa de texto do cpf é limpada e selecionada
+					
+				{} se não
+				
+					- aparece uma caixa de mensagem escrita "Cadastro realizado com sucesso!", 
+						a caixa tem a opção de "ok" apenas, em seu titulo esta escrito "ATENÇÃO"
+						
+					- todas caixas de texto são limpas
+			
+		* Listagem de Clientes:
+			
+			- tem uma tabela, nessa tabela aparece colunas com os titulos: CPF, Nome, forma de atendimento, valor, editar e excluir
+			
+				- ao clicar em editar, abre o formulario de cadastro, porem dessa vez com um botão de excuir e um de cancelar no topo da tela,
+					todos itens são editaveis
+					
+					- o botão gravar ira atualizar o cadastro, ao atualizar, aparecerá uma caixa de texto dizendo "Cadastro atualizado com sucesso!"
+					
+					- ao clicar no botão excluir, aparecerá uma caixa de texto com os botões "sim" e "não" com a pergunta:
+						"Deseja realmente excluir o cadastro?"
+						
+						{} se clicar em sim, o cadastro é excluido e aparece uma caixa de texto escrita: "Cadastro excluido com sucesso!"
+					
+						{} se clicar em não, nada acontece
+					
+				- ao clicar em excuir, aparecerá uma caixa de texto com os botões "sim" e "não" com a pergunta:
+						"Deseja realmente excluir o cadastro?"
+						
+						{} se clicar em sim, o cadastro é excluido e aparece uma caixa de texto escrita: "Cadastro excluido com sucesso!"
+					
+						{} se clicar em não, nada acontece
+
+pagamento de clientes: 
+	
+	- tem um data grid com duas abas: "Clientes" e "Registro de pagamento"
+
+	- na aba "Clientes" tem uma tabela com todos clientes cadastrados
+	
+		- a tabela tem as colunas: "CPF", "NOME", "VALOR", "EDITAR"
+		
+		- ao clicar em editar, abre a aba "Registro e Pagamento" com um formulario com os dados do cliente
+		  são eles: "nome" e "CPF", esses dados não são editaveis
+
+		- no formulario tem uma caixas de texto com os nomes:
+		 	- "Data do Ultimo Pagamento", não editavel, ira mostrar o pagamento mais recente registrado desse cliente
+
+			- "Valor do Ultimo Pagamento", não editavel, ira mostrar o valor do pagamento mais recente
+
+		 	- "Data do Novo Pagamento", editavel, o usuario ira escrever a data do novo pagamento
+
+			- "Valor do Novo Pagamento", editavel, o usuario ira escrever o valor do novo pagamento
+
+		- No canto inferior direito do formulario tera um botão escrito "Registrar Pagamento"
+			
+			a data do ultimo pagamento ira para o banco de dados, junto com o valor, nome e cpf do cliente
+
+gerar relatorio:
+	
+	- abrirá um formulario com com uma combo box escrita "tipo de relatorio",
+	as opções de relatorios serão: "relatorio de pagamento", "listagem de clientes" e "Ficha de Cliente"
+
+	- no canto inferior direito da tela tem um botão escrito "Gerar Realatório", 
+	  ele executara os comandos de geração de relatório.
+
+		{} se selecionar "relatorio de pagamentos", ficara visivel 3 combo box escritas:
+		  
+			- "Tipo de Relatorio" ("Geral" ou "Cliente Específico")
+			- "Periodo de incio"
+			- "Periodo final"
+
+			{} se escolher o tipo de relatorio "Geral", o banco de dados fará um relatorio com
+			   todos clintes, em ordem alfabetica, dentro do período especificado
+
+			{} se escolher "Cliente Específico" ficará visível uma caixa de texto
+			   chamada "CPF do Cliente"
+
+				{} se não achar o CPF aparecerá uma caixa de mensagem escrita "CPF não encontrado"
+			
+				{} se achar o CPF, o banco criará o relatorio de todos pagamentos desse cliente
+			  	 dentro do período especificado
+
+			- os dados dos clintes que apareceram serão: "nome", "CPF", "data do pagamento", "valor"			
+
+	- se o usuario escolher "Listagem de clientes", ao clicar no botão gerar relatorio, 
+	  o banco fará um relatorio com todos clientes cadastrados, em ordem alfabética.
+	  no relatorio terá as informções:
+
+	  "Nome", "CPF", "Data de Nascimento", "Forma de Atendimento", "Valor", "Possui Convenio"
+
+	- se o usuario escolher "Ficha de Clinete", aparecera um novo formulario chamado "Lista de clientes"
+	  nesse formulario tera um data grid com as colunas "Nome", "CPF" e "Gerar Relatório".
+		ao clicar no icone de gerar relatorio, o banco de dados criara um relatorio com TODOS
+		dados de cadastro do cliente
+		
+										
+
+	
+	
